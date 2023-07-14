@@ -4,10 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import br.com.antoniojoseuchoa.apicommvp.databinding.ActivityMainBinding
 import br.com.antoniojoseuchoa.apicommvp.model.Post
-import br.com.antoniojoseuchoa.apicommvp.model.PostagemApi
+import br.com.antoniojoseuchoa.apicommvp.presenter.IPostPresenter
 import br.com.antoniojoseuchoa.apicommvp.presenter.PostPresenter
 
-class MainActivity : AppCompatActivity(), PostagemApi {
+class MainActivity : AppCompatActivity(), IPostPresenter {
 
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     private lateinit var postPresenter: PostPresenter
@@ -17,7 +17,6 @@ class MainActivity : AppCompatActivity(), PostagemApi {
         setContentView(binding.root)
 
         postPresenter = PostPresenter(this)
-
     }
 
     override fun onStart() {
